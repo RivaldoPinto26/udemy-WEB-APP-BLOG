@@ -11,17 +11,18 @@
 </head>
 
 <body>
+
   <%- include("partials/header.ejs") %>
     <div class="container-fluid d-flex justify-content-center align-items-center ">
       <div class="w-50"> <!-- width of form -->
         <form action="/create" method="POST">
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Author:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <label for="exampleFormControlInput1" class="form-label" name="">Author:</label>
+            <input type="text" name="author" class="form-control" id="exampleFormControlInput1" required>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Writte your content bellow 👇</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Create</button>
         </form>

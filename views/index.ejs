@@ -10,19 +10,41 @@
   <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/font-size/font-size.css">
   <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/padding/padding.css">
 
-  <title>Document</title>
+  <title>Blog</title>
 </head>
 
 <body>
-  <div class="container-fluid">
-    <%- include("partials/header.ejs") %>
-      <%- include("partials/carousel.ejs") %>
-        <%- include("partials/footer.ejs") %>
+  <%- include("partials/header.ejs") %>
+    <%- include("partials/carousel.ejs") %>
 
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+      <div class="blog-post container-fluid w-50 py-5">
+        <h2 class="blog-post-title">Blog Posts</h2>
+
+        <% if (listBlog.length> 0) { %>
+          <% listBlog.forEach(post=> { %>
+            <div class="card my-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= post.author %>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  <%= post.date %>
+                </h6>
+                <p class="card-text">
+                  <%= post.content %>
+                </p>
+              </div>
+            </div>
+            <% }); %>
+              <% } else { %>
+                <p class="text-muted">Nenhum post ainda. Crie um novo post!</p>
+                <% } %>
+      </div>
+
+      <%- include("partials/footer.ejs") %>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"></script>
 </body>
 
 </html>
